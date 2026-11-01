@@ -1,6 +1,7 @@
 import type { Task, SortOption, TaskStatus } from '../../types';
 import TaskItem from './TaskItem';
 
+// TaskList middle-man. It just renders and forwards props to TaskItem.
 interface TaskListProps {
     tasks: Task[];
     sortBy: SortOption;
@@ -22,6 +23,7 @@ export default function TaskList({
 }: TaskListProps) {
     return (
         <div className="space-y-3">
+            {/* Search + sort controls above the list. */}
             <div className="flex flex-col sm:flex-row gap-2">
                 <input
                 value={search}
@@ -43,6 +45,7 @@ export default function TaskList({
                 </select>
             </div>
 
+            {/* Empty state */}
             {tasks.length === 0 ? (
                 <div className="text-center py-10 text-slate-500 dark:text-slate-400">
                     <p className="text-lg">No tasks found 🎉</p>
@@ -50,6 +53,7 @@ export default function TaskList({
                 </div>
             ) : (
                 <div className="space-y-2">
+                    {/* One TaskItem per task */}
                     {tasks.map((task) => (
                     <TaskItem
                         key={task.id}
