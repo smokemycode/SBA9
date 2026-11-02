@@ -35,7 +35,7 @@ function loadTheme(): Theme {
 export default function Dashboard() {
     // Dashboard own ALL the state, and passes down to children as props
     const [tasks, setTasks] = useState<Task[]>(loadTasks);
-    const [filters, setFilters] = useState<FilterOption>(defaultFilters);
+    const [filters, setFilters] = useState<FilterOptions>(defaultFilters);
     const [sortBy, setSortBy] = useState<SortOption>("created-desc");
     const [theme, setTheme] = useState<Theme>(loadTheme);
 
