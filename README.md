@@ -52,11 +52,11 @@ npm run preview — preview production build
 
 # REFLECTION
 ## React and TypeScript Implementation
-I built the app around a `Dashboard` component that owns all shared state. I used functional components everywhere, with `useState` for tasks, filters, sort, and theme, `useEffect` for `localStorage` persistence, and useMemo for derived lists and stats. TypeScript was essential — I typed every prop and used union types (`TaskStatus`, `TaskPriority`, `SortOption`) instead of plain `string` so the compiler caught typos. I also used `Record<string, string>`for form errors and cast `<select>` values with `as TaskStatus` since the DOM only returns strings.
+I built the app around a `Dashboard` component that owns all shared state. I used functional components everywhere, with `useState` for tasks, filters, sort, and theme, `useEffect` for `localStorage` persistence, and useMemo for derived lists and stats. TypeScript was essential, I typed every prop and used union types (`TaskStatus`, `TaskPriority`, `SortOption`) instead of plain `string` so the compiler caught typos. I also used `Record<string, string>`for form errors and cast `<select>` values with `as TaskStatus` since the DOM only returns strings.
 
 
 ## Challenges
-The biggest challenge was Tailwind v4. I installed `tailwindcss` but not `@tailwindcss/vite`, which broke `npm run dev` with a cryptic module error. The fix was one install — the lesson was to read errors literally. Dark mode was the second big one: the toggle updated state and `localStorage` correctly but the page didn't change, because Tailwind v4 defaults to `prefers-color-scheme`. I fixed it with `@custom-variant dark` in `index.css`, plus clearing a stale `"dark"` value in `localStorage`. Two separate bugs that looked like one. I also hit the stale-state bug with `setTasks([task, ...tasks])` before learning to use the functional form `setTasks(prev => ...)`.
+The biggest challenge was Tailwind v4. I installed `tailwindcss` but not `@tailwindcss/vite`, which broke `npm run dev` with a cryptic module error. The fix was one install, the lesson was to read errors literally. Dark mode was the second big one: the toggle updated state and `localStorage` correctly but the page didn't change, because Tailwind v4 defaults to `prefers-color-scheme`. I fixed it with `@custom-variant dark` in `index.css`, plus clearing a stale `"dark"` value in `localStorage`. Two separate bugs that looked like one. I also hit the stale-state bug with `setTasks([task, ...tasks])` before learning to use the functional form `setTasks(prev => ...)`.
 
 
 ## Composition and State Management
