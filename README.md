@@ -31,6 +31,7 @@ Open http://localhost:5173.
 ```
 
 ## Project Structure
+```
 src/
 ├── components/
 │   ├── Dashboard/    # Owns all state, composes everything
@@ -40,11 +41,14 @@ src/
 ├── types/            # All TypeScript interfaces
 ├── utils/            # Pure helpers (sort, filter, validate, dates)
 └── App.tsx
+```
 
 ## Scripts
+```
 npm run dev — start dev server
 npm run build — production build
 npm run preview — preview production build
+```
 
 # REFLECTION
 ## React and TypeScript Implementation
